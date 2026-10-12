@@ -1,0 +1,49 @@
+---
+// Site header: promo bar + sticky top with nav.
+// The `path` prop (passed from Layout) marks the active nav link.
+export interface Props { path?: string; }
+const { path = '/' } = Astro.props;
+const isActive = (href: string) => path === href || (href !== '/' && path.startsWith(href));
+---
+<div class="promo">
+  Fall booking · <b>Half-day sessions now open in California</b> · <a href="/contact/">Book your free consult</a>
+</div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="Tidy Terrain home">
+      <img src="/images/logo.png" alt="Tidy Terrain" class="logo-img" />
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="/" class={isActive('/') ? 'active' : ''}>Home</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="/about/" class={isActive('/about/') ? 'active' : ''}>About</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="/services/" class={isActive('/services/') ? 'active' : ''}>Services</a>
+      <span class="sep" aria-hidden="true">|</span>
+      <a href="/contact/" class={isActive('/contact/') ? 'active' : ''}>Contact</a>
+    </nav>
+    <div class="top-cta">
+      <a class="btn orange sm" href="/contact/">Get In Touch!</a>
+      <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav">Menu</button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile" hidden>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/services/">Services</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('menuBtn');
+  const nav = document.getElementById('mnav');
+  if (btn && nav) {
+    btn.addEventListener('click', () => {
+      const open = nav.hasAttribute('hidden');
+      if (open) { nav.removeAttribute('hidden'); } else { nav.setAttribute('hidden', ''); }
+      btn.setAttribute('aria-expanded', String(open));
+    });
+  }
+</script>

@@ -1,0 +1,52 @@
+---
+// Rotating testimonial band. Edit the quotes list in src/pages/index.astro
+// where this component is used — or hardcode defaults below.
+---
+<section class="testi">
+  <div class="wrap">
+    <div class="stars">★★★★★</div>
+    <h3 id="quote">Debbie didn't just organize my pantry — she gave me back my Sunday mornings. I cry every time I open that cabinet.</h3>
+    <p class="meta" id="qmeta">— Sarah M. · Pantry Reset</p>
+    <div class="nav-dots" role="tablist">
+      <button aria-current="true" aria-label="Review 1" data-q="0"></button>
+      <button aria-label="Review 2" data-q="1"></button>
+      <button aria-label="Review 3" data-q="2"></button>
+    </div>
+  </div>
+</section>
+
+<script>
+  const quotes: [string, string][] = [
+    ["Debbie didn't just organize my pantry — she gave me back my Sunday mornings. I cry every time I open that cabinet.", "— Sarah M. · Pantry Reset"],
+    ["Our entryway was a leash graveyard. Now it's the first thing guests compliment, and Winston actually waits by his hook.", "— Jenna R. · Dog Zone"],
+    ["She brought a plan, not a judgment. The whole closet took one afternoon and still looks like day one, six months later.", "— Mia T. · Room Reset"],
+  ];
+  const qEl = document.getElementById('quote') as HTMLElement | null;
+  const mEl = document.getElementById('qmeta') as HTMLElement | null;
+  const dots = Array.from(document.querySelectorAll<HTMLButtonElement>('.nav-dots button'));
+  let cur = 0;
+  let t: ReturnType<typeof setInterval>;
+
+  function setQ(i: number) {
+    cur = i;
+    if (!qEl || !mEl) return;
+    qEl.style.transition = 'opacity .4s';
+    mEl.style.transition = 'opacity .4s';
+    qEl.style.opacity = '0';
+    mEl.style.opacity = '0';
+    setTimeout(() => {
+      qEl.textContent = quotes[i][0];
+      mEl.textContent = quotes[i][1];
+      qEl.style.opacity = '1';
+      mEl.style.opacity = '1';
+    }, 200);
+    dots.forEach((d, j) => d.setAttribute('aria-current', j === i ? 'true' : 'false'));
+  }
+
+  dots.forEach((d, j) => d.addEventListener('click', () => {
+    clearInterval(t);
+    setQ(j);
+    t = setInterval(() => setQ((cur + 1) % quotes.length), 6500);
+  }));
+  t = setInterval(() => setQ((cur + 1) % quotes.length), 6500);
+</script>

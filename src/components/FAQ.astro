@@ -1,0 +1,14 @@
+---
+// Accordion FAQ. Pass an `items` array of {q, a} pairs.
+export interface Item { q: string; a: string; }
+export interface Props { items: Item[]; }
+const { items } = Astro.props;
+---
+<div class="faq">
+  {items.map((item) => (
+    <details>
+      <summary>{item.q}</summary>
+      <p>{item.a}</p>
+    </details>
+  ))}
+</div>

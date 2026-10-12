@@ -1,0 +1,83 @@
+---
+// Site footer with the alpaca line art above it.
+---
+<div class="alpacas" id="alpacas" aria-hidden="true">
+  <svg viewBox="0 0 420 220" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <g>
+      <path pathLength="1" d="M55 180 Q25 180 25 148 Q25 118 55 112 Q85 108 115 112 Q140 116 140 148 Q140 180 115 180 Z"/>
+      <path pathLength="1" d="M55 180 L55 205"/>
+      <path pathLength="1" d="M75 180 L75 205"/>
+      <path pathLength="1" d="M105 180 L105 205"/>
+      <path pathLength="1" d="M125 180 L125 205"/>
+      <path pathLength="1" d="M25 142 Q18 138 22 132"/>
+      <path pathLength="1" d="M135 118 Q160 95 175 65"/>
+      <path pathLength="1" d="M118 108 Q145 85 160 55"/>
+      <path pathLength="1" d="M160 55 Q155 35 175 30 Q195 28 200 42 Q205 56 190 62 L172 64 Q162 64 160 55 Z"/>
+      <path pathLength="1" d="M172 32 L170 18 L178 28"/>
+      <path pathLength="1" d="M186 28 L190 14 L194 26"/>
+      <path pathLength="1" d="M174 22 Q180 14 188 18"/>
+      <circle pathLength="1" cx="185" cy="44" r="1.8" fill="currentColor" stroke="none"/>
+    </g>
+    <g>
+      <path pathLength="1" d="M365 180 Q395 180 395 148 Q395 118 365 112 Q335 108 305 112 Q280 116 280 148 Q280 180 305 180 Z"/>
+      <path pathLength="1" d="M365 180 L365 205"/>
+      <path pathLength="1" d="M345 180 L345 205"/>
+      <path pathLength="1" d="M315 180 L315 205"/>
+      <path pathLength="1" d="M295 180 L295 205"/>
+      <path pathLength="1" d="M395 142 Q402 138 398 132"/>
+      <path pathLength="1" d="M285 118 Q260 95 245 65"/>
+      <path pathLength="1" d="M302 108 Q275 85 260 55"/>
+      <path pathLength="1" d="M260 55 Q265 35 245 30 Q225 28 220 42 Q215 56 230 62 L248 64 Q258 64 260 55 Z"/>
+      <path pathLength="1" d="M248 32 L250 18 L242 28"/>
+      <path pathLength="1" d="M234 28 L230 14 L226 26"/>
+      <path pathLength="1" d="M246 22 Q240 14 232 18"/>
+      <circle pathLength="1" cx="235" cy="44" r="1.8" fill="currentColor" stroke="none"/>
+    </g>
+    <path pathLength="1" d="M210 50 L210 54" stroke-width="1.4"/>
+    <path class="heart" d="M210 22 C 205 14 193 14 193 24 C 193 34 210 44 210 44 C 210 44 227 34 227 24 C 227 14 215 14 210 22 Z" fill="#E89A4A" stroke="#E89A4A" stroke-width="1"/>
+  </svg>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="/" aria-label="Tidy Terrain" style="margin-bottom:14px">
+          <img src="/images/logo.png" alt="Tidy Terrain" class="logo-img footer-logo" />
+        </a>
+        <p style="color:#AFA99D;max-width:28ch;margin-top:14px">Calm, hands-on home organizing for California — for people who love their homes and the dogs they share them with.</p>
+      </div>
+      <div><h5>Contact</h5><p>hello@tidyterrain.com<br>(555) 555-0142</p></div>
+      <div><h5>Explore</h5><p><a href="/services/">Services</a><br><a href="/about/">About</a><br><a href="/contact/">Book a Consult</a></p></div>
+      <div>
+        <h5>Stay in touch</h5>
+        <p style="margin-bottom:10px">A short note each month — no clutter.</p>
+        <form class="signup" id="signup">
+          <input id="news-email" type="email" placeholder="Email address" aria-label="Email" required />
+          <button type="submit">Join</button>
+        </form>
+        <p id="toast2" hidden style="margin-top:12px;color:var(--orange);font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:.78rem">Thank you</p>
+      </div>
+    </div>
+    <div class="fine"><span>© 2026 Tidy Terrain</span><span>Instagram · Pinterest · Facebook</span></div>
+  </div>
+</footer>
+
+<script>
+  // Reveal-on-scroll + alpaca draw-in
+  const io = 'IntersectionObserver' in window
+    ? new IntersectionObserver((es) => {
+        es.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+        });
+      }, { threshold: .12, rootMargin: '0px 0px -40px 0px' })
+    : null;
+  document.querySelectorAll('.rv:not(.in), #alpacas:not(.in)').forEach((el) => {
+    if (io) io.observe(el); else el.classList.add('in');
+  });
+
+  // Newsletter toast
+  const su = document.getElementById('signup');
+  const t2 = document.getElementById('toast2');
+  if (su && t2) su.addEventListener('submit', (e) => { e.preventDefault(); t2.removeAttribute('hidden'); });
+</script>

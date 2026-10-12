@@ -1,0 +1,65 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact | Book a Free Consult | Tidy Terrain">
+  <section class="phead">
+    <div class="wrap">
+      <div class="stack center">
+        <span class="eyebrow">Contact</span>
+        <h1>Let's tidy up <b>your terrain</b></h1>
+        <p class="lede">Tell us a little about your home and your dog. We'll reach out within one business day to set up a 20-minute call.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="split" style="align-items:start">
+        <form class="form rv" id="bookForm">
+          <label>Your name<input id="f-name" name="name" required autocomplete="name" /></label>
+          <label>Email<input id="f-email" name="email" type="email" required autocomplete="email" /></label>
+          <label>Phone<input id="f-phone" name="phone" type="tel" autocomplete="tel" /></label>
+          <label>City<input id="f-city" name="city" /></label>
+          <label>Dog's name<input id="f-dog" name="dog" placeholder="Optional, but we love names" /></label>
+          <label>Where should we start?
+            <select id="f-room" name="room">
+              <option>Dog zone / entryway</option>
+              <option>Closet</option>
+              <option>Kitchen or pantry</option>
+              <option>Garage</option>
+              <option>Living room</option>
+              <option>Whole home</option>
+              <option>Moving soon</option>
+              <option>Not sure yet</option>
+            </select>
+          </label>
+          <label class="full">What's bugging you most?
+            <textarea id="f-msg" name="msg" placeholder="The leash pile, the toy explosion, the closet you're scared to open..."></textarea>
+          </label>
+          <div class="full btns" style="align-items:center;gap:20px">
+            <button class="btn" type="submit">Request Your Consult</button>
+            <span class="toast" id="toast" hidden>Thank you — we'll be in touch within one business day</span>
+          </div>
+        </form>
+        <div class="info-blk rv">
+          <div class="photo"><img src="/images/dog.jpg" alt="Our Chief Snuggle Officer" /></div>
+          <div><h5>Email</h5><p>hello@tidyterrain.com</p></div>
+          <div><h5>Phone or text</h5><p>(555) 555-0142</p></div>
+          <div><h5>Hours</h5><p>Monday thru Friday · 9AM til 5PM<br />Saturday · By appointment</p></div>
+          <div><h5>Serving</h5><p>California · Virtual anywhere</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  const form = document.getElementById('bookForm');
+  const toast = document.getElementById('toast');
+  if (form && toast) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      toast.removeAttribute('hidden');
+    });
+  }
+</script>

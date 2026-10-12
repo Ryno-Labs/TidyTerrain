@@ -1,0 +1,130 @@
+---
+// Home page
+import Layout from '../layouts/Layout.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FAQ from '../components/FAQ.astro';
+
+const faqs = [
+  { q: "Do I need to clean before you come?", a: "No. Please don't. Seeing the space as it really is helps us build a system that fits your real life — not a version you'd stage for guests." },
+  { q: "Can my dog be home during the session?", a: "Yes, we'd love that. How your dog moves through the house helps decide where everything goes. We'll bring treats." },
+  { q: "Will you make me throw things away?", a: "Never. You make every keep, donate, or toss decision. We guide the process and keep it moving." },
+  { q: "Do you bring the bins and labels?", a: "After the consult we provide a shopping list, or we can shop for you. We stick to sturdy, dog-safe, wipeable products." },
+];
+---
+<Layout title="Tidy Terrain | Home Organizing for Dog Families | California">
+  <section class="hero">
+    <img class="hero-photo" src="/images/pantry.jpg" alt="Bright white kitchen pantry with organized jars and baskets" />
+    <div class="hero-wrap">
+      <div class="hero-panel">
+        <h1>
+          <span class="word"><span style="--i:0" class="thin">A</span></span>
+          <span class="word"><span style="--i:1" class="bold">Calmer</span></span>
+          <span class="word"><span style="--i:2" class="thin">Home</span></span><br />
+          <span class="word"><span style="--i:3" class="thin">For</span></span>
+          <span class="word"><span style="--i:4" class="bold">You</span></span>
+          <span class="word"><span style="--i:5" class="thin">and</span></span>
+          <span class="word"><span style="--i:6" class="bold">Your Dog.</span></span>
+        </h1>
+        <p class="lede">Thoughtful, hands-on home organizing for California — real systems that fit the way you live, built around the pup who runs the house.</p>
+        <a class="btn" href="/contact/">Get Started</a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="split r">
+        <div class="photo tall rv"><img src="/images/living.jpg" alt="Sun-filled open living room" /></div>
+        <div class="stack rv">
+          <span class="eyebrow">Feeling overwhelmed?</span>
+          <h2>We're here to <b>help you breathe</b> again.</h2>
+          <p class="lede">You're not messy — you're busy. Life got loud, the pile by the door grew, and your home stopped keeping up. We bring a calm, hands-on approach so you don't have to carry it alone.</p>
+          <div class="pains" style="margin-top:12px">
+            <div><h4>Non-judgmental</h4><p>Every home gets messy. We show up with a plan, not a lecture.</p></div>
+            <div><h4>Quick turnaround</h4><p>Most spaces are fully reset in a half or full day of hands-on work.</p></div>
+            <div><h4>Dog-friendly</h4><p>Your pup is family. Every system we build makes real room for them.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-bg">
+    <div class="wrap">
+      <div class="split">
+        <div class="stack rv">
+          <span class="eyebrow">Why choose Tidy Terrain?</span>
+          <h2>You deserve a home that <b>feels like yours</b>.</h2>
+          <p class="lede">We're the perfect fit if you want to get organized quickly, with minimal lift on your part, and real systems that last. Our hands-on approach means you get a beautiful, functional home without spending every weekend sorting bins.</p>
+          <p class="lede">Dog families get an extra layer of care — because your home shouldn't choose between beautiful and lived-in.</p>
+          <div class="btns"><a class="btn" href="/about/">Read Our Story</a></div>
+        </div>
+        <div class="photo wide rv"><img src="/images/closet.jpg" alt="Organized walk-in closet" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="stack center rv" style="max-width:640px;margin-inline:auto">
+        <span class="eyebrow">Ready to get organized?</span>
+        <h2>Simple steps to a <b>stress-free home</b></h2>
+      </div>
+      <div class="steps">
+        <div class="rv"><span class="n">1</span><h4>Book a free consult</h4><p>A 20-minute call to understand your space, your routine, and your dog.</p></div>
+        <div class="rv"><span class="n">2</span><h4>Get your custom plan</h4><p>Zones, products, and a session schedule that fits your home and budget.</p></div>
+        <div class="rv"><span class="n">3</span><h4>Walk into calm</h4><p>We sort, edit, and set up systems together — no guesswork, no overwhelm.</p></div>
+      </div>
+      <div class="btns" style="justify-content:center;margin-top:52px"><a class="btn" href="/services/">See Our Services</a></div>
+    </div>
+  </section>
+
+  <Testimonials />
+
+  <section>
+    <div class="wrap">
+      <div class="stack center rv" style="max-width:640px;margin-inline:auto">
+        <span class="eyebrow">Our services</span>
+        <h2>Pick your <b>starting spot</b></h2>
+      </div>
+      <div class="svc">
+        <article class="svc-card rv">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M8 14h32v26a4 4 0 0 1-4 4H12a4 4 0 0 1-4-4Z"/><path d="M14 14V8a4 4 0 0 1 4-4h12a4 4 0 0 1 4 4v6"/><path d="M16 22h16M16 30h10"/></svg>
+          <h3>The Dog Zone</h3>
+          <p>One dedicated spot for everything dog — leashes, harnesses, food, treats, grooming, toys. Half-day session.</p>
+          <a class="more" href="/services/">Learn more →</a>
+        </article>
+        <article class="svc-card rv">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 40V12a4 4 0 0 1 4-4h32a4 4 0 0 1 4 4v28"/><path d="M4 40h40M14 24h8M26 24h8M14 32h20"/></svg>
+          <h3>Room Reset</h3>
+          <p>A full edit and reset of the room that stresses you out most — closet, kitchen, pantry, garage. Full day.</p>
+          <a class="more" href="/services/">Learn more →</a>
+        </article>
+        <article class="svc-card rv">
+          <svg class="ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 42V18L24 6l18 12v24"/><path d="M18 42V26h12v16"/></svg>
+          <h3>Whole Home</h3>
+          <p>Room by room across the whole house, planned in phases so life (and dog walks) can keep going.</p>
+          <a class="more" href="/services/">Learn more →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="soft-bg compact">
+    <div class="wrap">
+      <div class="stack center rv" style="max-width:640px;margin-inline:auto">
+        <span class="eyebrow">Common questions</span>
+        <h2>Good to <b>know</b></h2>
+      </div>
+      <FAQ items={faqs} />
+    </div>
+  </section>
+
+  <section class="bigcta">
+    <div class="wrap">
+      <h2>Ready for a home that <b>feels amazing?</b></h2>
+      <p class="lede">Start with a free 20-minute call. No pressure, no judgment — just a conversation about what's weighing on you.</p>
+      <a class="btn orange" href="/contact/">Book Your Free Consult</a>
+    </div>
+  </section>
+</Layout>
